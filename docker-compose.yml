@@ -1,0 +1,45 @@
+services:
+  # 1. REDIS (Dağıtık Önbellek / RAM)
+  redis:
+    image: redis:alpine
+    container_name: dotnetlab-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # 2. RABBITMQ (Mesaj Kuyruğu + Yönetim Paneli)
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: dotnetlab-rabbitmq
+    ports:
+      - "5672:5672"   # uygulamanın bağlandığı port
+      - "15672:15672" # yönetim paneli portu (http://localhost:15672)
+    restart: unless-stopped
+
+  # 3. ELASTICSEARCH (Akıllı ve Bulanık Arama Motoru)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    container_name: dotnetlab-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    restart: unless-stopped
+
+  # 4. AWS LOCALSTACK (Amazon S3 ve SQS Bulut Simülatörü)
+  aws-localstack:
+    image: localstack/localstack:3.0
+    container_name: dotnetlab-aws
+    ports:
+      - "4566:4566"
+    restart: unless-stopped
+
+  # 5. MONGODB (NoSQL Belge Veritabanı)
+  mongodb:
+    image: mongo:7.0
+    container_name: dotnetlab-mongodb
+    ports:
+      - "27017:27017"
+    restart: unless-stopped

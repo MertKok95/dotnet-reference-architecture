@@ -1,0 +1,46 @@
+# ==========================================
+# .NET 10 & Enterprise Architecture Gitignore
+# ==========================================
+
+# 1. Build & Release Folders
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Pp]ublish/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# 2. Logs & Application Outputs
+[Ll]ogs/
+*.log
+*.err
+
+# 3. Local Databases & Cache Files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# 4. Environment Variables & Local Secrets (Security)
+appsettings.Development.json
+appsettings.Local.json
+.env
+.env.*
+secrets.json
+
+# 5. IDEs & OS Specific Files (VS, VS Code, Rider, macOS, Windows)
+.vscode/
+.idea/
+.vs/
+.DS_Store
+Thumbs.db
+*.Rider.sln.ide
+
+# 6. Test Results & Code Coverage Reports
+[Tt]est[Rr]esults/
+coverage/
+*.coverage
+*.trx
