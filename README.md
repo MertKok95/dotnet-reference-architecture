@@ -22,8 +22,8 @@ DotNetCoreLab
 This blueprint eliminates traditional "Spaghetti Code" by implementing enterprise-level design patterns:
 
 - **CQRS & Vertical Slice Organization:** Read (Queries) and Write (Commands) operations are segregated and grouped by business features (`Categories`, `Products`, `Users`). Controllers remain thin, delegating all orchestration to MediatR handlers.
-- **MediatR Pipeline Validation (Fail-Fast):** Business rule validation is removed from controllers and entities. Every incoming request passes through a centralized `RequestValidationPipe` behavior powered by **FluentValidation** before reaching the handler.
-- **Global Exception Handling (RFC 7807):** Try-catch blocks are eliminated from business logic. System-wide exceptions and validation failures are intercepted at the API boundary by `GlobalExceptionHandler` and returned as standardized `ProblemDetails` JSON responses.
+- **MediatR Pipeline Validation:** Business rule validation is removed from controllers and entities. Every incoming request passes through a centralized `RequestValidationPipe` behavior powered by **FluentValidation** before reaching the handler.
+- **Global Exception Handling:** Try-catch blocks are eliminated from business logic. System-wide exceptions and validation failures are intercepted at the API boundary by `GlobalExceptionHandler` and returned as standardized `ProblemDetails` JSON responses.
 - **Event-Driven Architecture & Cloud Messaging:** Side effects (cache invalidation, notifications) are decoupled from primary database transactions using in-memory MediatR notifications (`INotificationHandler`) as well as distributed message brokers via **RabbitMQ** (`RabbitMqPublisher`) and **AWS SQS** (`AwsSqsPublisher`, `AwsSqsConsumer`).
 - **Polyglot Persistence & Cloud Storage:** Demonstrates working with relational databases (**SQLite / EF Core**), NoSQL document stores (**MongoDB**), distributed caching (**Redis**), and cloud object storage (**AWS S3**).
 - **Centralized Logging & Full-Text Search:** Integrated with **Serilog** and **Elasticsearch** for structured application logging, performance monitoring, and high-speed search indexing.
