@@ -52,7 +52,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/MertKok95/dotnet-reference-architecture.git](https://github.com/MertKok95/dotnet-reference-architecture.git)
+   git clone https://github.com/MertKok95/dotnet-reference-architecture.git
    cd dotnet-reference-architecture
    ```
 
